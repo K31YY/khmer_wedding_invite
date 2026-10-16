@@ -1,0 +1,214 @@
+/* =====================================================================
+   ENVELOPE — printed-card replica in olive paper + gold foil.
+   3D chain: .env (perspective) > .env-stage > .env-body preserve-3d.
+   No CSS filter anywhere on those three.
+   ===================================================================== */
+.gate {
+  position: fixed; inset: 0; z-index: 80;
+  display: grid; place-items: center;
+  background: var(--ink-2);
+}
+.gate__bg {
+  position: absolute; inset: -8vmin; pointer-events: none;
+  background: #10130c center / cover no-repeat;
+  filter: blur(34px) saturate(.8) brightness(.42);
+  transform: scale(1.08);
+}
+.gate__dim {
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(120% 90% at 50% 42%, rgba(8,10,6,.18) 0%, rgba(8,10,6,.74) 78%, rgba(4,5,3,.9) 100%);
+}
+.gate__stage {
+  position: relative;
+  width: 100%; height: 100svh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: clamp(14px, 4svh, 42px);
+  padding: calc(env(safe-area-inset-top, 0px) + 12px) 12px calc(env(safe-area-inset-bottom, 0px) + 14px);
+}
+.gate__invite { text-align: center; transform: translateY(4px); }
+.gate__kicker {
+  font-family: var(--f-display);
+  font-size: clamp(1.08rem, 5.6vw, 1.7rem);
+  line-height: 1.9;
+  background-image: var(--foil-line);
+  background-size: 260% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
+  padding: var(--foil-pad-t) .14em var(--foil-pad-b);
+  animation: foilSweep 8s linear infinite;
+}
+.gate__sub {
+  font-family: var(--f-serif); font-weight: 500;
+  font-size: clamp(.7rem, 2.8vw, .9rem);
+  letter-spacing: .42em; text-indent: .42em;
+  text-transform: uppercase; color: rgba(244, 238, 221, .78);
+}
+.gate__hint {
+  font-size: clamp(.74rem, 3.1vw, .92rem); color: rgba(244, 238, 221, .82);
+  letter-spacing: 0; text-align: center;
+  animation: hintPulse 2.6s ease-in-out infinite;
+}
+@keyframes hintPulse { 50% { opacity: .55; } }
+.gate__veil {
+  position: absolute; inset: 0; z-index: 5; background: #07090400;
+  background: #070904; opacity: 0; pointer-events: none;
+}
+
+/* ------------------------------------------------------------------ */
+.env {
+  position: relative;
+  width: min(88vw, 620px);
+  aspect-ratio: 1.58 / 1;
+  perspective: 1700px;
+}
+.env-stage, .env-body { position: absolute; inset: 0; transform-style: preserve-3d; }
+
+/* ground shadow below the envelope (a gradient ellipse — never a filter) */
+.env-ground {
+  position: absolute; left: 6%; right: 6%; top: 84%; height: 30%;
+  border-radius: 50%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, .55) 0%, rgba(0, 0, 0, 0) 72%);
+  transform: translateZ(-26px);
+}
+
+.env-back {
+  position: absolute; inset: 0;
+  border-radius: 7px 7px 9px 9px;
+  background: var(--tex-grain), var(--tex-fibre),
+    linear-gradient(168deg, #46503a 0%, var(--olive-mid) 60%, #272f1d 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .10),
+    inset 0 0 60px rgba(10, 12, 6, .5);
+}
+
+/* ---------- the card riding inside ---------- */
+.env-card-wrap {
+  position: absolute; left: 18.5%; top: 8%; width: 63%; height: 87%;
+  transform-style: flat;
+}
+.env-card {
+  position: absolute; inset: 0;
+  container-type: inline-size;
+  border-radius: 2px;
+  background: var(--tex-grain), var(--tex-fibre),
+    linear-gradient(162deg, #f8f3e6 0%, var(--cream) 55%, #e7dbbc 100%);
+  box-shadow: 0 10px 22px -8px rgba(5, 7, 3, .55), 0 1px 0 rgba(255, 255, 255, .8) inset;
+}
+.env-card::after {
+  content: ''; position: absolute; inset: 4.6%;
+  border: 1px solid rgba(140, 105, 40, .45); border-radius: 1px;
+  box-shadow: 0 0 0 1px rgba(255, 253, 245, .6);
+}
+.env-card__inner {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 1.6cqi; text-align: center; color: var(--espresso);
+}
+.env-card__logo { width: 68cqi; position: relative; z-index: 1; }
+.env-card__rule { width: 16cqi; height: 1px; background: linear-gradient(90deg, transparent, #b98c33, transparent); }
+.env-card__invite { font-size: 4.4cqi; line-height: 1.9; font-weight: 300; color: #6b573a; padding: 0 8cqi; }
+.env-card__date { font-family: var(--f-display); font-size: 5cqi; line-height: 1.8; color: #55401f; }
+.env-card__lunar { font-size: 3.6cqi; line-height: 1.9; color: #8a724d; padding-top: .2em; }
+
+/* ---------- front pocket: left / right / bottom folded panels ---------- */
+.env-pocket { position: absolute; inset: 0; transform: translateZ(6px); }
+.env-pocket > div { position: absolute; inset: 0; }
+.env-pocket__panel--bottom {
+  top: 52%;
+  background: var(--tex-grain),
+    linear-gradient(174deg, #3d472e 0%, #343d26 55%, #2b331f 100%);
+  clip-path: polygon(0 3%, 100% 3%, 100% 100%, 0 100%);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, .05);
+}
+.env-pocket__panel--left {
+  filter: drop-shadow(2.2px -2px 5px rgba(8, 10, 5, .5));
+  background: var(--tex-grain),
+    linear-gradient(150deg, #414b31 0%, #38412790 40%, #313a22 100%);
+  clip-path: polygon(-4% -6%, -4% 106%, 56% 49%);
+}
+.env-pocket__panel--right {
+  filter: drop-shadow(-2.2px -2px 5px rgba(8, 10, 5, .55));
+  background: var(--tex-grain),
+    linear-gradient(196deg, #46512f 0%, #3a4327 45%, #2f3823 100%);
+  clip-path: polygon(104% -6%, 104% 106%, 44% 49%);
+}
+.env-pocket__panel--right::after {   /* fold crease catch-light */
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(118deg, transparent 40%, rgba(255, 244, 200, .055) 42%, transparent 46%);
+}
+
+/* the shadow the closed flap casts on the pocket */
+.env-flap-cast {
+  position: absolute; left: 0; top: 1.8%; width: 100%; height: 60%;
+  transform: translateZ(11.5px);
+  background: rgba(5, 7, 3, .5);
+}
+
+/* ---------- the scalloped flap (folds back 3D) ---------- */
+.env-flap-pivot {
+  position: absolute; left: 0; top: -1.2%; width: 100%; height: 61%;
+  transform-origin: 50% 0%;
+  transform-style: preserve-3d;
+}
+.env-flap {
+  position: absolute; inset: 0;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+}
+.env-flap--front {
+  background: var(--tex-grain), var(--tex-fibre),
+    linear-gradient(196deg, #4a5535 0%, var(--olive) 52%, #36402a 100%);
+  box-shadow: inset 0 -22px 34px -20px rgba(6, 8, 3, .5);
+}
+.env-flap--back {
+  transform: rotateX(180deg);
+  background: var(--tex-grain),
+    linear-gradient(16deg, #efe6cc 0%, var(--cream-2) 55%, #d9cba4 100%);
+  box-shadow: inset 0 18px 26px -18px rgba(122, 101, 67, .5);
+}
+.env-flap--back::after {   /* faint deckle pattern on the lining */
+  content: ''; position: absolute; inset: 9%;
+  border: 1px dashed rgba(154, 118, 44, .34);
+  clip-path: inherit;
+}
+.env-flap__logo {
+  position: absolute; left: 50%; top: 41%;
+  transform: translate(-50%, -50%);
+  width: 44%;
+}
+.env-flap__gold {
+  position: absolute; left: 7.5%; right: 7.5%; bottom: 5%;
+  width: 85%; height: 9%;
+  overflow: visible;
+  opacity: .92;
+}
+
+/* ---------- wax seal ---------- */
+.env-seal {
+  position: absolute; left: 50%; top: 57.5%;
+  width: 20.5%; aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  background: none; border: 0; padding: 0;
+  display: grid; place-items: center;
+}
+.env-seal > svg { width: 100%; height: auto; overflow: visible; position: relative; z-index: 1;
+  filter: drop-shadow(0 5px 7px rgba(4, 5, 2, .55)); }
+.env-seal__shadow {
+  position: absolute; inset: 8%;
+  border-radius: 50%;
+  background: radial-gradient(50% 50% at 50% 52%, rgba(2, 3, 1, .62), rgba(2, 3, 1, 0) 70%);
+  opacity: .35; transform-origin: 50% 50%;
+  filter: blur(6px);
+}
+.env-seal::after {   /* invitation to tap */
+  content: ''; position: absolute; inset: -14%;
+  border: 1px solid rgba(242, 223, 157, .55); border-radius: 50%;
+  animation: sealRing 2.6s ease-out infinite;
+}
+@keyframes sealRing {
+  0% { transform: scale(.8); opacity: 0; }
+  35% { opacity: .8; }
+  100% { transform: scale(1.25); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .env-seal::after, .gate__hint { animation: none; }
+}

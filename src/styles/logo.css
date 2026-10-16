@@ -1,0 +1,61 @@
+/* ============ name lockup ============ */
+.lock {
+  container-type: inline-size;
+  position: relative;
+  user-select: none;
+}
+.lock__crest { display: flex; justify-content: center; margin-bottom: .1em; }
+.lock__crest svg { height: 1.5em; width: auto; }
+.lock__field { position: relative; display: grid; grid-template-rows: auto auto; }
+.lock__g, .lock__b {
+  font-family: var(--f-lock);
+  line-height: 1.8;
+  font-size: 18cqi;
+  font-weight: 400;
+}
+.lock__g { justify-self: start; margin-left: .35em; text-align: left; }
+.lock__b { justify-self: end; margin-right: .35em; text-align: right; margin-top: -.32em; }
+.lock__field svg.orn-flourish {
+  position: absolute; left: 8%; right: 8%; top: 34%; width: 84%; height: 36%;
+}
+.lock__bfly {
+  position: absolute; top: 2%; right: 6%; width: 13%; z-index: 2; opacity: 0;
+}
+.lock__bfly svg { width: 100%; height: auto; overflow: visible; }
+
+/* butterfly materials */
+.orn-bfly .wing { fill: url(#g-foil); opacity: .95; }
+.orn-bfly .wing--l { filter: brightness(.94); }
+.orn-bfly .bfly-body, .orn-bfly .bfly-ant { fill: #8a6524; stroke: #8a6524; }
+.is-flapping .bfly-wings_l, .is-flapping .bfly-wings_r {
+  animation: wingFlap .26s ease-in-out infinite alternate;
+}
+.is-flapping .bfly-wings_l { animation-name: wingFlapL; }
+.bfly-wings_l, .bfly-wings_r { transform-origin: 0px 0px; transform-box: fill-box; }
+@keyframes wingFlapR { from { transform: scaleX(.34) } to { transform: scaleX(1) } }
+@keyframes wingFlapL { from { transform: scaleX(.34) } to { transform: scaleX(1) } }
+.lock--flap .orn-bfly .wing { animation: none; }
+
+/* variants: width of .lock decides everything (cqi units) */
+.lock--cover { width: 250px; }
+.lock--card  { width: 200px; }
+.env-card__logo .lock { width: 100%; }
+.env-flap__logo .lock { width: 100%; }
+.lock--flap  { width: min(46%, 300px); }
+.lock--big   { width: min(320px, 78vw); }
+.lock--mini  { width: 108px; }
+.lock--finale { width: min(270px, 70vw); }
+.lock--mini .lock__g, .lock--mini .lock__b { font-size: 22cqi; }
+.lock--mini .lock__field { display: flex; align-items: center; gap: .4em; justify-content: center; }
+.lock--mini .lock__g { margin: 0; }
+.lock--mini .lock__b { margin: 0; }
+.lock--mini svg.orn-flourish { position: static; width: 66%; height: auto; flex: 1; top: 0; left: 0; right: 0; }
+
+/* HUD mini */
+.lockmini { display: inline-flex; align-items: center; gap: 2px; font-family: var(--f-lock); color: var(--foil-hi); font-size: 1.02rem; line-height: 1.8; }
+.lockmini .foil {
+  padding: .3em .06em .2em;
+  background-image: var(--foil-flat);
+  -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
+}
+.lockmini__line { width: 30px; height: 18px; margin: 0 1px; }

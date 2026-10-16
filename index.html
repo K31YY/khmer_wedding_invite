@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="km">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#20261a" />
+  <title>សិរីសួស្តីអាពាហ៍ពិពាហ៍ · សុខា & មលី</title>
+  <meta name="description" content="សូមគោរពអញ្ជើញចូលរួមពិធីអាពាហ៍ពិពាហ៍ សុខា & មលី · You are warmly invited to our wedding" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="សិរីសួស្តីអាពាហ៍ពិពាហ៍ · សុខា & មលី" />
+  <meta property="og:description" content="សូមគោរពអញ្ជើញ · You are warmly invited to the wedding of Sokha & Maly" />
+  <meta property="og:url" content="https://sokha-maly.example.com/" />
+  <meta property="og:image" content="https://sokha-maly.example.com/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+</head>
+<body class="is-locked" data-lang="km">
+  <!-- global SVG defs: foil gradient + filters, referenced site-wide -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="g-foil" x1="0" y1="0" x2="1" y2=".35" gradientUnits="objectBoundingBox">
+        <stop offset="0" stop-color="#8a6524" />
+        <stop offset=".22" stop-color="#cfa54e" />
+        <stop offset=".42" stop-color="#f8eec4" />
+        <stop offset=".55" stop-color="#d9b15a" />
+        <stop offset=".78" stop-color="#9c7124" />
+        <stop offset="1" stop-color="#d3ab55" />
+      </linearGradient>
+      <linearGradient id="g-foil-v" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#f2df9d" />
+        <stop offset=".45" stop-color="#c99f42" />
+        <stop offset=".55" stop-color="#a07a2c" />
+        <stop offset="1" stop-color="#e6c877" />
+      </linearGradient>
+      <filter id="f-wax" x="-30%" y="-30%" width="160%" height="160%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="n" seed="7" />
+        <feDiffuseLighting in="n" lighting-color="#ffe9a8" surfaceScale="1.6" result="d" diffuseConstant="1">
+          <feDistantLight azimuth="235" elevation="52" />
+        </feDiffuseLighting>
+        <feSpecularLighting in="n" lighting-color="#fff6d8" surfaceScale="2.2" specularConstant=".9" specularExponent="24" result="s">
+          <feDistantLight azimuth="235" elevation="52" />
+        </feSpecularLighting>
+        <feComposite in="d" in2="SourceAlpha" operator="in" result="dl" />
+        <feComposite in="s" in2="SourceAlpha" operator="in" result="sl" />
+        <feMerge>
+          <feMergeNode in="SourceGraphic" />
+          <feMergeNode in="dl" />
+          <feMergeNode in="sl" />
+        </feMerge>
+      </filter>
+      <filter id="f-emboss-deep" x="-20%" y="-20%" width="140%" height="140%">
+        <feOffset in="SourceAlpha" dx="0" dy="1" result="o1" />
+        <feGaussianBlur in="o1" stdDeviation="0.7" result="b1" />
+        <feSpecularLighting in="b1" surfaceScale="2" specularConstant=".75" specularExponent="16" lighting-color="#fff4cd" result="sl">
+          <feDistantLight azimuth="270" elevation="55" />
+        </feSpecularLighting>
+        <feComposite in="sl" in2="SourceAlpha" operator="in" result="slc" />
+        <feOffset in="SourceAlpha" dx="0" dy="-1" result="o2" />
+        <feGaussianBlur in="o2" stdDeviation="0.8" result="b2" />
+        <feFlood flood-color="#241a04" flood-opacity=".55" result="dk" />
+        <feComposite in="dk" in2="b2" operator="in" result="dark" />
+        <feComposite in="dark" in2="SourceAlpha" operator="in" result="darkc" />
+        <feMerge>
+          <feMergeNode in="SourceGraphic" />
+          <feMergeNode in="darkc" />
+          <feMergeNode in="slc" />
+        </feMerge>
+      </filter>
+      <filter id="f-blur-sm"><feGaussianBlur stdDeviation="1.4" /></filter>
+    </defs>
+  </svg>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- 0 · ENVELOPE GATE -->
+  <div class="gate" id="gate" role="dialog" aria-modal="true" aria-label="Wedding envelope">
+    <div class="gate__bg" id="gate-bg" aria-hidden="true"></div>
+    <div class="gate__dim" aria-hidden="true"></div>
+    <div class="gate__stage" id="gate-stage">
+      <div class="gate__invite">
+        <div class="gate__kicker" id="gate-kicker"></div>
+        <div class="gate__sub" id="gate-sub"></div>
+      </div>
+      <div id="env-mount"></div>
+      <div class="gate__hint" id="gate-hint"></div>
+    </div>
+    <div class="gate__veil" id="gate-veil" aria-hidden="true"></div>
+  </div>
+
+  <!-- HUD (top bar) -->
+  <header class="hud" id="hud">
+    <div class="hud__logo" id="hud-logo" aria-hidden="true"></div>
+    <div class="hud__right">
+      <button class="chip" id="lang-toggle" type="button" aria-label="Switch language"></button>
+      <button class="chip chip--music" id="music-toggle" type="button" aria-pressed="false" aria-label="Music">
+        <span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="app"></main>
+
+  <footer class="footer">
+    <span class="footer__names" id="footer-names"></span>
+    <span class="footer__credit"><a href="https://somethphay.me" target="_blank" rel="noopener">Design inspired by Someth Phay · somethphay.me</a></span>
+  </footer>
+
+  <div class="toast" id="toast" role="status"></div>
+  <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+    <img id="lb-img" alt="" />
+    <button class="lb-btn lb-close" type="button" id="lb-close" aria-label="Close">✕</button>
+    <button class="lb-btn lb-prev" type="button" id="lb-prev" aria-label="Previous">‹</button>
+    <button class="lb-btn lb-next" type="button" id="lb-next" aria-label="Next">›</button>
+    <div class="lb-count" id="lb-count"></div>
+    <div class="lb-cap" id="lb-cap"></div>
+  </dialog>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
