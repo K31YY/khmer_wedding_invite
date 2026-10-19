@@ -1,29 +1,29 @@
 export const wedding = {
-  url: 'https://sokha-maly.example.com',
+  // url: 'https://sokha-maly.example.com',
   music: '/media/music.mp3',
 
   couple: {
     groom: {
-      shortKm: 'សុខា',        // name used in the logo lockup (2–3 syllables)
-      fullKm:  'ជា សុខា',     // full Khmer name
-      en:      'Chea Sokha',  // English name
+      shortKm: 'សុឃី',        // name used in the logo lockup (2–3 syllables)
+      fullKm:  'ឃឿត​ សុឃី',     // full Khmer name
+      en:      'Khoeurt Sokhy',  // English name
     },
     bride: {
-      shortKm: 'ជាមាន',
-      fullKm:  'ស៊ូ មលី',
-      en:      'Su Maly',
+      shortKm: 'រ៉ាស៊ី',
+      fullKm:  'នី​ រ៉ាស៊ី',
+      en:      'Ny Rasy',
     },
   },
 
   parents: {
     groom: {
-      father: { km: 'ជា សុវណ្ណ',  en: 'Chea Sovann' },
-      mother: { km: 'ជា សីលា',    en: 'Chea Seila' },
+      father: { km: 'វ័ន ឃឿត',  en: 'Vorn Khoeurt' },
+      mother: { km: 'ចិ​ វលក្ខណ័',    en: 'Che Voleak' },
       titleSr: { km: 'មាតាបិតាកូនកំលោះ', en: "Groom's Parents" },
     },
     bride: {
-      father: { km: 'ស៊ូ ដារ៉ា',   en: 'Su Dara' },
-      mother: { km: 'ស៊ូ ចន្ធា',    en: 'Su Chanta' },
+      father: { km: 'ប៉ានី',   en: 'Pa Ny' },
+      mother: { km: 'ម៉ាក់ម៊ំុ',    en: 'Mak Mom' },
       titleSr: { km: 'មាតាបិតាកូនក្រមុំ', en: "Bride's Parents" },
     },
   },
@@ -66,8 +66,8 @@ export const wedding = {
   galleryCaptions: {},
 
   gifts: [
-    { label: { km: 'KHQR ឈ្មោះគណនី', en: 'KHQR Account' }, holder: 'SOKHA CHEA', file: '/gift/qr-a.png' },
-    { label: { km: 'ABA Pay Now', en: 'ABA Pay Now' },        holder: 'MALY SU',   file: '/gift/qr-b.png' },
+    { label: { km: 'KHQR ឈ្មោះគណនី', en: 'KHQR Account' }, holder: 'SOKHY', file: '/gift/qr-a.png' },
+    { label: { km: 'ABA Pay Now', en: 'ABA Pay Now' },        holder: 'RASY',   file: '/gift/qr-b.png' },
   ],
 
   // Slow blessing marquee behind the countdown
