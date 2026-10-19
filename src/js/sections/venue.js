@@ -1,4 +1,3 @@
-/* 10 · VENUE — crest, map embed, Open in Google Maps + .ics */
 import { h, wedding, L, state, downloadICS, toast, t } from '../utils.js';
 import { gsap } from '../gsap-setup.js';
 import { crest } from '../ornaments.js';
