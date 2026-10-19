@@ -1,9 +1,3 @@
-/* =====================================================================
-   ឡូហ្គោឈ្មោះ — the couple's name logo used everywhere:
-   groom top-left, bride bottom-right (Moulpali, gold foil), joined by
-   a flourish line, a small heart and a butterfly, under a crest.
-   Khmer names are HTML text layered over the SVG flourish.
-   ===================================================================== */
 import { h, svgFrag, wedding, state } from './utils.js';
 import { crest, flourish, butterfly } from './ornaments.js';
 import { gsap, MotionPathPlugin } from './gsap-setup.js';
