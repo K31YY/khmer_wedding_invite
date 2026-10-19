@@ -1,4 +1,3 @@
-/* COVER / HERO — merged with the hero: darkened couple photo + full invitation cover */
 import { h, svgFrag, t, wedding, picSrc, isTouch, reduced, desktopBig } from '../utils.js';
 import { gsap } from '../gsap-setup.js';
 import { lockup, animateLockup } from '../logo.js';
