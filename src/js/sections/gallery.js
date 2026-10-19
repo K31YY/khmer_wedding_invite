@@ -1,10 +1,8 @@
-/* 9 · GALLERY — masonry grid + swipeable full-screen viewer */
 import { h, wedding, reduced } from '../utils.js';
 import { gsap } from '../gsap-setup.js';
 import { divider } from '../ornaments.js';
 
 let PHOTOS = [
-  // replaced by manifest if /img/gallery.json exists
   ...['g1', 'g2', 'g3', 'g4', 'g5', 'g6', 'g7', 'g8', 'g9', 'g10'].map((n, i) => ({
     id: n, ar: [0.66, 1.25, 0.8, 1.5, 0.72, 1.2, 0.9, 1.35, 0.7, 1.1][i],
   })),
