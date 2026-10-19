@@ -1,4 +1,3 @@
-/* 11 · WEDDING GIFT ចំណងដៃ — QR codes always visible, with a Save button */
 import { h, wedding, L, t } from '../utils.js';
 import { gsap } from '../gsap-setup.js';
 import { divider } from '../ornaments.js';
