@@ -1,4 +1,3 @@
-/* 12 · THANK YOU — candles light one by one, share, final lockup */
 import { h, svgFrag, t, toast, wedding, reduced } from '../utils.js';
 import { gsap } from '../gsap-setup.js';
 import { lockup, animateLockup } from '../logo.js';
