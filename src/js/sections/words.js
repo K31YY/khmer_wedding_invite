@@ -1,4 +1,3 @@
-/* 3 · FORMAL INVITATION WORDS — arched photo + both sets of parents on cream paper */
 import { h, t, wedding, picSrc } from '../utils.js';
 import { gsap, ScrollTrigger } from '../gsap-setup.js';
 import { crest, divider } from '../ornaments.js';
@@ -50,7 +49,6 @@ export function buildWords() {
     );
   }
 
-  /* motion: paper rises, text masks line by line, photo arch reveals */
   gsap.from(photo, {
     clipPath: 'inset(45% 0 45% 0)', opacity: .3, duration: 1.4, ease: 'power3.inOut',
     scrollTrigger: { trigger: s, start: 'top 72%' },
