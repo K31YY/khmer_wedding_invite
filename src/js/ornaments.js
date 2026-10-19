@@ -1,9 +1,3 @@
-/* =====================================================================
-   Original decorative elements — flowing leaf scrolls, a fan-shaped
-   crest, soft curls, a butterfly, line icons. All drawn in code as
-   geometry; no cultural motifs claimed, no stock clipart.
-   Khmer text is NEVER rendered inside SVG — HTML sits on top.
-   ===================================================================== */
 import { svgFrag } from './utils.js';
 
 const NS = 'http://www.w3.org/2000/svg';
