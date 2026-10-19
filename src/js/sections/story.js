@@ -1,4 +1,3 @@
-/* 7 · LOVE STORY — pinned sideways photo strip; the light shifts day → dusk */
 import { h, wedding, reduced } from '../utils.js';
 import { gsap, ScrollTrigger } from '../gsap-setup.js';
 
@@ -72,7 +71,6 @@ export function buildStory() {
     });
   }
 
-  /* captions reveal on their own when un-pinned devices scroll */
   if (reduced) {
     gsap.set(track, { x: 0 });
     ScrollTrigger.getAll().forEach((x) => { if (x.vars?.id === 'story') x.kill(true); });
