@@ -66,8 +66,8 @@ export const wedding = {
   galleryCaptions: {},
 
   gifts: [
-    { label: { km: 'ABA', en: 'ABA KHQR' }, holder: 'SOKHY', file: '/gift/qr-a.png' },
-    { label: { km: 'ACLEDA', en: 'ACLEDA KHQR' },        holder: 'RASY',   file: '/gift/qr-b.png' },
+    { label: { km: 'ABA', en: 'ABA KHQR' }, holder: 'SOKHY', file: '/gift/aba.png' },
+    { label: { km: 'ACLEDA', en: 'ACLEDA KHQR' },        holder: 'RASY',   file: '/gift/acleda.jpg' },
   ],
 
   // Slow blessing marquee behind the countdown
