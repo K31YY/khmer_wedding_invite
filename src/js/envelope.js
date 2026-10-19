@@ -1,9 +1,3 @@
-/* =====================================================================
-   ENVELOPE GATE — first screen. Real paper layers in 3D:
-   back < card < pocket-front < flap-shadow < flap < seal.
-   transform-style: preserve-3d on the stage chain; NO CSS filters on
-   any 3D parent (they would flatten it).
-   ===================================================================== */
 import { h, wedding, t, state, reduced, weak, isTouch, dateParts } from './utils.js';
 import { gsap } from './gsap-setup.js';
 import { seal, scallopBottomPoly, scallopLine } from './ornaments.js';
