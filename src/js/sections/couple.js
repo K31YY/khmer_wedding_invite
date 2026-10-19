@@ -1,4 +1,3 @@
-/* 4 · THE COUPLE — scalloped photo portrait + both names & parents */
 import { h, wedding, t, parentLines } from '../utils.js';
 import { gsap } from '../gsap-setup.js';
 import { scallopFrameClip, butterfly, divider } from '../ornaments.js';
