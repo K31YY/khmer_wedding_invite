@@ -1,5 +1,3 @@
-/* 8 · CANDLELIGHT POND — full-screen photo; touch the water for ripples
-   and floating lotus lanterns. 2D canvas only (no WebGL on phones). */
 import { h, wedding, reduced, weak, isTouch, L } from '../utils.js';
 import { gsap } from '../gsap-setup.js';
 
