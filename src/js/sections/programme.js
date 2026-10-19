@@ -1,5 +1,3 @@
-/* 6 · PROGRAMME — a gold thread draws down the paper as you scroll;
-   each ritual's line icon draws itself and lights up. */
 import { h, wedding, state, kmNum } from '../utils.js';
 import { gsap } from '../gsap-setup.js';
 import { icon, divider } from '../ornaments.js';
