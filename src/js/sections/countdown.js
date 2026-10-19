@@ -1,4 +1,3 @@
-/* 5 · COUNTDOWN — Khmer numerals, slow blessing marquee drifting behind */
 import { h, kmNum, state, wedding, reduced } from '../utils.js';
 import { gsap } from '../gsap-setup.js';
 
